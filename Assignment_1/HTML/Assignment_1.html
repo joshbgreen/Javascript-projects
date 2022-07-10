@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      let contacts = [
+        {
+          firstName: "josh",
+          lastName: "green",
+          phoneNo: 123456,
+          likes: ["hockey", "sport", "computers"],
+        },
+        {
+          firstName: "james",
+          lastName: "blue",
+          phoneNo: 123457,
+          likes: ["business", "books", "magazines"],
+        },
+        {
+          firstName: "john",
+          lastName: "purple",
+          phoneNo: 123458,
+          likes: ["video games", "youtube", "computers"],
+        },
+        {
+          firstName: "javier",
+          lastName: "silver",
+          phoneNo: 123459,
+          likes: ["money", "alcahol", "pubs"],
+        },
+        {
+          firstName: "jane",
+          lastName: "black",
+          phoneNo: 123460,
+          likes: ["Television"],
+        },
+      ];
+
+      let findContact = (name, property) => {
+        for (let i = 0; i < contacts.length; i++) {
+          if (name == contacts[i]["firstName"]) {
+            if (Object.values(contacts[i]).includes(property)) {
+              return property;
+            } else {
+              return "no property found";
+            }
+            return;
+          }
+        }
+        return "contact not found";
+      };
+    </script>
+
+    <title>Assignment1</title>
+  </head>
+</html>
