@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      //take two numbers and return the biggest value
+      // solution one
+      let biggestNum = (a, b) => {
+        if (a > b) {
+          return a + " is greater than " + b;
+        } else if (a < b) {
+          return a + " is less than " + b;
+        } else {
+          return a + " is equal to " + b;
+        }
+
+        //solution two
+        return a > b ? "a is greater" : a < b ? "b is greater" : "equal";
+      };
+
+      //write a function to check a string is blank or not
+      let isBlank = (string) => {
+        //should always use .length to check if the string is blank instead of a comparison
+        return string.length === 0 ? "string is blank" : "string is not blank";
+      };
+
+      //star pattern 1*, 2* until 6 rows of 6
+      let pattern = (iterations) => {
+        let output = "";
+        for (let i = 1; i <= iterations; i++) {
+          for (let k = 1; k <= i; k++) {
+            output = output + "*";
+          }
+          console.log(output);
+          output = "";
+        }
+      };
+      //find the sum of three nums
+      let sum = (a, b, c) => {
+        let value = a + b + c;
+        return value >= 0 ? "sum is positive" : "sum is negative";
+      };
+      // swap two values
+      let a = 20;
+      let b = 10;
+
+      [a, b] = [b, a];
+      console.log(a);
+      console.log(a);
+    </script>
+  </head>
+</html>

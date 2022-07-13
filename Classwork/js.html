@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- append/ prepend -->
+    <ul id="app">
+      <li>Javascript</li>
+    </ul>
+    <p id="dataPara">
+      This is paragraph <span>insert element here</span> of text.
+    </p>
+    <a href="https://www.google.com" id="dataAnchor" target="_blank">Google</a>
+
+    <button id="firstBtn" onclick="clickHandler()">Alert</button>
+    <script>
+      //event handling
+      function clickHandler() {
+        alert("Welcome user");
+      }
+
+      const button = document.getElementById("dataPara");
+      button.addEventListener("click", clickHandler);
+
+      let app = document.querySelector("#app");
+      let langs = ["Typescript", "HTML", "Angluar", "C#"];
+
+      //map method, this method gives you access to the data within an array to be used as wanted
+      let data = langs.map((a) => {
+        let li = document.createElement("li");
+        li.textContent = a;
+        return li;
+      });
+
+      //adds onto the end of list append
+      app.append(...data);
+      //adds at the beginning prepend
+      app.prepend(...data);
+
+      //innerHTML, innerText, textcontext
+      console.log("innerText");
+      console.log(document.querySelector("#dataPara").innerText);
+      console.log("innerHTML");
+      console.log(document.querySelector("#dataPara").innerHTML);
+      console.log("textContent");
+      console.log(document.querySelector("#dataPara").textContent);
+
+      //removeattribute
+      document.querySelector("#dataAnchor").removeAttribute("href");
+
+      //remove html
+      //document.getElementById("dataAnchor").remove();
+
+      //addattribute
+      document
+        .querySelector("#dataAnchor")
+        .setAttribute("href", "https://www.google.com");
+    </script>
+  </body>
+</html>
