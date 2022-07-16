@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Train Movement Assignment</title>
+    <style>
+      .center {
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        width: 100%;
+      }
+      #train {
+        padding-left: 0;
+      }
+      img {
+        height: fit-content;
+        width: auto;
+      }
+      .initRequirement {
+        border: 5px solid red;
+        height: 13rem;
+      }
+      .extension {
+        border: 5px solid blue;
+      }
+    </style>
+    <script>
+      //initial requirement
+      let y = 5;
+
+      function moveTrain() {
+        if (y <= 90) {
+          document.getElementById("train").style.paddingLeft = y + "%";
+          y = y + 5;
+        } else {
+          y = 0;
+        }
+      }
+
+      function resetTrain() {
+        document.getElementById("train").style.paddingLeft = 0;
+        y = 5;
+      }
+
+      //extension work
+      let x = 0;
+      let z = 0;
+      let interval;
+      function race() {
+        console.log("race function active");
+        if (x <= 80 && z <= 80) {
+          timer();
+        } else {
+          alert("Please reset the race!");
+        }
+      }
+      function reset() {
+        console.log("Race reset");
+        document.getElementById("train1").style.paddingLeft = 0;
+        document.getElementById("train2").style.paddingLeft = 0;
+        if (interval) {
+          clearInterval(interval);
+          interval = null;
+        }
+        x = 0;
+        z = 0;
+      }
+      function raceMovement() {
+        if (x <= 80 && z <= 80) {
+          console.log("raceMovement function active");
+          randNum1 = Math.floor(Math.random() * 10) + 1;
+          randNum2 = Math.floor(Math.random() * 10) + 1;
+          x = x + randNum1;
+          z = z + randNum2;
+          console.log(x);
+          console.log(z);
+          document.getElementById("train1").style.paddingLeft = x + "%";
+          document.getElementById("train2").style.paddingLeft = z + "%";
+        } else if (x >= 80 || z >= 80) {
+          clearInterval(interval);
+          console.log("Race complete");
+          var result =
+            x > z
+              ? "Train 1 has won!"
+              : x < z
+              ? "Train 2 has won!"
+              : "Train 1 & 2 have tied!";
+          alert(result);
+        }
+      }
+      function timer() {
+        console.log("timer");
+        if (!interval) {
+          interval = setInterval(raceMovement, 1000);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="initRequirement">
+      <img id="train" src="../Media/train.jpg" />
+
+      <div class="center">
+        <button class="button" onclick="moveTrain()">Click to move!</button>
+        <button class="button" onclick="resetTrain()">Click to reset!</button>
+      </div>
+    </div>
+    <br />
+
+    <div class="extension">
+      <h2>Welcome to the Races</h2>
+      <button id="beginRace" onclick="race()">Begin Race!</button>
+      <button id="resetRace" onClick="reset()">Reset Race!</button>
+      <br />
+      <img id="train1" src="../Media/train1.png" />
+      <br />
+      <img id="train2" src="../Media/train2.png" />
+    </div>
+  </body>
+</html>

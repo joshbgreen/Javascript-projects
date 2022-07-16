@@ -9,7 +9,6 @@
         padding: 1rem;
         transform: scale(0.9);
       }
-      )
     </style>
   </head>
   <body>
@@ -34,6 +33,14 @@
 
     <button id="firstBtn" onclick="clickHandler()">Alert</button>
     <script>
+      function message() {
+        console.log("Just a message");
+      }
+      //set time out
+      setTimeout(message, 1000);
+      //set interval
+      setInterval(message, 10000);
+
       //keyboard events
       let keyboard = document.querySelector("#event");
       //keydown, keyup, keypress, mousedown, mouseup, focus, blur, change
